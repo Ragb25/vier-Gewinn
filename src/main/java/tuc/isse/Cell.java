@@ -1,6 +1,6 @@
 package tuc.isse;
 
-public class Cell extends Gameobjekt {
+public class Cell extends Game0bjekt {
     private Token token;
 
     public Cell(){
