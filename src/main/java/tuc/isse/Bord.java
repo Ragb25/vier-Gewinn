@@ -4,9 +4,19 @@ import javax.swing.*;
 
 public class Bord extends GameObjekt{
 
+    public Cell[][] getGameBord() {
+        return gameBord;
+    }
+
+    public void setGameBord(Cell[][] gameBord) {
+        this.gameBord = gameBord;
+    }
+
     private Cell[][] gameBord  = new Cell[6][7]; // Das Spielfeld
 
-
+    /*
+    Getter und setter von gameBoard.
+     */
     /*
     Jetzt füllen wir unser Spielfeld mit den Cell.
      */
