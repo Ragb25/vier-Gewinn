@@ -16,7 +16,7 @@ public class Token extends GameObjekt {
 
     @Override
     public String toString() {
-        return (color == Color.RED) ? "X" : "O";
+        return (color == Color.RED) ? "X" : "0";
     }
 
 

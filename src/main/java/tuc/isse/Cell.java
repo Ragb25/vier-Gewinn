@@ -16,12 +16,12 @@ public class Cell extends GameObjekt {
         this.token = token;
     }
 
-    public boolean placetoken(Token t){
+    public Token placetoken(Token t){
         if (this.token == null){
             this.token = t;
-            return true;
+            return this.token;
         }
-        return false;
+        return null;
     }
 
     public boolean isleer(){
