@@ -8,11 +8,6 @@ public class Cell extends GameObjekt {
 
     }
 
-    public Token getToken() {
-
-        return token;
-    }
-
 
 
     public void setToken(Token token) {
