@@ -13,5 +13,14 @@ public class Token extends GameObjekt {
 
         return this.color;
     }
+
+    @Override
+    public String toString() {
+        return (color == Color.RED) ? "X" : "O";
+    }
+
+
 }
+
+
 
