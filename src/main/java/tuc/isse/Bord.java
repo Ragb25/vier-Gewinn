@@ -46,7 +46,7 @@ public class Bord extends GameObjekt{
     /*
     Die Methode dropToken prüft zuerst, ob eine Spalte besetzt werden kann. Wenn möglich stellt sie ein Token in der unterste cell
      */
-    public boolean dropToken(color color, int columnsIndex){
+    public boolean dropToken(Color color, int columnsIndex){
         if (!canDrop(columnsIndex)){
             return false;
         }
