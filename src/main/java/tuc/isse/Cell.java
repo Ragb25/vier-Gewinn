@@ -8,11 +8,6 @@ public class Cell extends GameObjekt {
 
     }
 
-    public Token getToken() {
-
-        return token;
-    }
-
 
 
     public void setToken(Token token) {
@@ -37,7 +32,7 @@ public class Cell extends GameObjekt {
     @Override
     public String toString() {
         if (token == null){
-            return "()";
+            return "(  )";
         }  else{
             return "(" + token.toString() +")";
         }
