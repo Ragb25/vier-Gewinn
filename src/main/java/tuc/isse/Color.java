@@ -1,6 +1,6 @@
 package tuc.isse;
 
-public enum color {
+public enum Color {
     RED,
     BLUE;
 }

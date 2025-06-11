@@ -9,7 +9,14 @@ public class Cell extends Game0bjekt {
     }
 
     public Token getToken() {
+
         return token;
+    }
+
+
+
+    public void setToken(Token token) {
+        this.token = token;
     }
 
     public boolean placetoken(Token t){
@@ -21,11 +28,9 @@ public class Cell extends Game0bjekt {
     }
 
     public boolean isleer(){
+
         return this.token == null;
     }
-
-
-
 
 
 
