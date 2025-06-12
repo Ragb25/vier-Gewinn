@@ -1,0 +1,31 @@
+[33m686e831[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mwilfried[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{0}: rebase (finish): returning to refs/heads/wilfried
+[33m686e831[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mwilfried[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: rebase (start): checkout refs/heads/main
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{2}: checkout: moving from main to wilfried
+[33m686e831[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mwilfried[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{3}: commit: Cell und token
+[33m0cab7d2[m HEAD@{4}: checkout: moving from wilfried to main
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{5}: checkout: moving from main to wilfried
+[33m0cab7d2[m HEAD@{6}: merge origin/main: Fast-forward
+[33mb1d2d50[m HEAD@{7}: commit: Cell
+[33m58863a3[m HEAD@{8}: commit: Cell
+[33md17d30c[m HEAD@{9}: checkout: moving from wilfried to main
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{10}: checkout: moving from main to wilfried
+[33md17d30c[m HEAD@{11}: checkout: moving from wilfried to main
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{12}: checkout: moving from main to wilfried
+[33md17d30c[m HEAD@{13}: commit: Cell, color
+[33m2d503e7[m HEAD@{14}: merge origin/main: Fast-forward
+[33m4d66021[m HEAD@{15}: commit: Cell, color
+[33m1d2b6eb[m HEAD@{16}: checkout: moving from wilfried to main
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{17}: checkout: moving from main to wilfried
+[33m1d2b6eb[m HEAD@{18}: merge refs/heads/wilfried: Merge made by the 'ort' strategy.
+[33m9b56c24[m HEAD@{19}: merge wilfried: updating HEAD
+[33m9b56c24[m HEAD@{20}: checkout: moving from wilfried to main
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{21}: merge main: updating HEAD
+[33m831cf68[m[33m ([m[1;31morigin/wilfried[m[33m)[m HEAD@{22}: commit: add java class Cell, Token, winner, color
+[33mad96bd1[m HEAD@{23}: commit: add java class Cell, Token, winner, color
+[33me0a4ec0[m HEAD@{24}: checkout: moving from main to wilfried
+[33m9b56c24[m HEAD@{25}: merge origin/main: Fast-forward
+[33me0a4ec0[m HEAD@{26}: checkout: moving from wilfried to main
+[33me0a4ec0[m HEAD@{27}: checkout: moving from main to wilfried
+[33me0a4ec0[m HEAD@{28}: checkout: moving from wilfried to main
+[33me0a4ec0[m HEAD@{29}: checkout: moving from main to wilfried
+[33me0a4ec0[m HEAD@{30}: clone: from https://gitlab.tu-clausthal.de/isse/teaching/ss2025/programmierkurs/projektaufgabe/group-10.git
