@@ -3,6 +3,12 @@ import org.junit.jupiter.api.Test;
 import tuc.isse.Bord;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 public class TestBord {
 
     @Test
