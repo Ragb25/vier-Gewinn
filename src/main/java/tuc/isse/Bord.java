@@ -2,6 +2,14 @@ package tuc.isse;
 
 import javax.swing.*;
 
+
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
+
 public class Bord extends GameObjekt{
 
     public Cell[][] getGameBord() {
