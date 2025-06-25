@@ -80,7 +80,7 @@ public class Bord extends GameObjekt {
     /*
     Die Methode checkWinner prüft, ob eine Farbe das Spiel gewonnen hat.
     Vorgehen: Über jede einzelne Zeile iterieren und das Token der cell holen. Danach die Farbe(color)
-    des Tokens speichern anschließen wird geprüft, ob diese Farbe horizontal, vertikal oder diagonal vier
+    des Tokens speichern anschließen wird geprüft, ob die Siegbedingung erfüllt(in Zeile)
     Mäle kommt.
      */
 
@@ -88,10 +88,10 @@ public class Bord extends GameObjekt {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 Token token = gameBord[i][j].getToken();
-                if (token == null) continue;
+                if (token == null) continue; // leere token enthalten keine Farbe
                 Color colorToCheck = token.getColor();
 
-                if (color == colorToCheck && j <= 3 && toCheckRow(colorToCheck, i, j, 1)) {
+                if (color == colorToCheck && j <= 3 && toCheckRow(colorToCheck, i, j, 1)) { // wenn j großer als 3 ist, werden wird die Länge von gameBord überschreiten.
                     return true;
                 }
 
@@ -99,30 +99,37 @@ public class Bord extends GameObjekt {
         }
         return false;
     }
+
+    /*
+    Die Methode toCheckRow überprüft, ob eine bestimmte Farbe die Siegbedingung erfüllt.
+     */
     private boolean toCheckRow(Color color,int toCheckLine,int toCheckColumn, int lineRechner) {
-        int istRow = 1;
+        int istRow = 1; // Zählt wie oft die Farbe in Zickzak vorkommt
         int colomnRechner = toCheckColumn;
         lineRechner = toCheckLine;
-        if (lineRechner<5){
+
+        if (lineRechner<5){ // ist lineRechner schon gleich 5, könnten wir nicht mehr von unten prüfen.
             for(int i=1; i<4; i++){
-                if(lineRechner==toCheckLine){
+
+                if(lineRechner==toCheckLine){ // Sorgt dafür, dass wir immer die Zeile wechseln.
                     lineRechner += 1;
                 } else { lineRechner -= 1;}
 
                 colomnRechner += 1;
-                if( gameBord[lineRechner][colomnRechner].getToken()== null) break;
+                if( gameBord[lineRechner][colomnRechner].getToken()== null) break; // Falls das token leer ist, sind wir fertig
                 if(gameBord[lineRechner][colomnRechner].getToken().getColor()==null || color!=gameBord[lineRechner][colomnRechner].getToken().getColor()){
                     break;
                 }
 
-                else istRow += 1;
+                else istRow += 1; // Nur wenn die betrachtete Farbe noch mal in der richtigen Position vorkommt.
 
             }
 
         }
 
-         if(istRow==4) return true;
+         if(istRow==4) return true; // Die Farbe hat das Spiel gewonnen.
 
+        // Hier wiederholen wir das Gleiche aber für die Zeile oben.
         istRow = 1;
         colomnRechner = toCheckColumn;
         lineRechner = toCheckLine;
@@ -143,11 +150,17 @@ public class Bord extends GameObjekt {
 
         return false;
     }
+    /*
+    Die Methode checkWinner prüft, ob eine Farbe das Spiel gewonnen hat.
+    Vorgehen: Über jede einzelne Zeile iterieren und das Token der cell holen. Danach die Farbe(color)
+    des Tokens speichern anschließen wird geprüft, ob die Siegbedingung erfüllt(in Spalte)
+    Mäle kommt.
+     */
     private boolean isColumnVictory (Color color){
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 Token token = gameBord[i][j].getToken();
-                if (token == null) continue;
+                if (token == null) continue; // leere token enthalten keine Farbe
                 Color colorToCheck = token.getColor();
 
                 if (color == colorToCheck && i <= 2 && toCheckColumn(colorToCheck, i, j, 1)) {
@@ -159,6 +172,8 @@ public class Bord extends GameObjekt {
         return false;
 
     }
+
+    // Das gleiche Verfahren wie bei toCheckLine
     private boolean toCheckColumn(Color color,int toCheckLine,int toCheckColumn, int colomnRechner){
         int istRow = 1;
         colomnRechner = toCheckColumn;
@@ -201,9 +216,10 @@ public class Bord extends GameObjekt {
         return false;
 
     }
+    // Hier ist die Methode, die unserer isRowVictory und isColumnVictory aufruft.
     public Winner TestVictory(){
         if(isRowVictory(Color.RED) || isColumnVictory(Color.RED)){
-            return Winner.RED;
+            return Winner.RED;     // Wenn die Farbe RED eine der Siegbedingungen erfüllt.
         } else if(isRowVictory(Color.BLUE) || isColumnVictory(Color.BLUE)){
             return Winner.BLUE;
         }
