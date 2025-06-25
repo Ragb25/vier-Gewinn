@@ -43,8 +43,11 @@ public class TestBord {
 
         assertEquals(expected1, bord1.toString()); //Erster Test
 
+        System.out.println("Test 1: Der Winner ist " + bord1.TestVictory());
+        assertEquals(bord1.TestVictory(), Winner.NONE);
 
     }
+    @Test
     void test2(){
 
        /*
@@ -70,15 +73,20 @@ public class TestBord {
        bord.dropToken(Color.BLUE, 0);
        bord.dropToken(Color.BLUE, 0);
 
+
        String expected =
                        "( )( )( )( )( )( )( )\n" +
                        "( )( )( )( )( )( )( )\n" +
                        "( )( )( )( )( )( )(X)\n" +
-                       "( )( )(O)( )(X)(X)(O)\n" +
-                       "(O)( )(X)( )(X)(O)(X)\n" +
-                       "(O)(X)(O)(X)(O)(O)(X)\n";
+                       "( )( )(0)( )(X)(X)(0)\n" +
+                       "(0)( )(X)( )(X)(0)(X)\n" +
+                       "(0)(X)(0)(X)(0)(0)(X)\n";
        assertEquals(expected, bord.toString());
+
+        System.out.println("Test 2: Der Winner ist " + bord.TestVictory());
+       assertEquals(bord.TestVictory(), Winner.RED);
     }
+    @Test
     void test3(){
       /*
       Die dritte Tabelle generieren.
@@ -96,20 +104,25 @@ public class TestBord {
        bord.dropToken(Color.RED, 2);
        bord.dropToken(Color.BLUE, 2);
        bord.dropToken(Color.RED, 2);
+       bord.dropToken(Color.BLUE, 2);
        bord.dropToken(Color.BLUE, 1);
        bord.dropToken(Color.RED, 1);
        bord.dropToken(Color.BLUE, 1);
        bord.dropToken(Color.RED, 0);
        bord.dropToken(Color.BLUE, 0);
 
+
        String expected =
                        "( )( )( )( )( )( )( )\n" +
                        "( )( )( )( )( )( )( )\n" +
-                       "( )( )(O)( )(X)( )( )\n" +
-                       "( )(O)(X)( )(X)(O)( )\n" +
-                       "(O)(X)(O)( )(X)(O)( )\n" +
-                       "(X)(O)(X)(X)(X)(O)(O)\n";
+                       "( )( )(0)( )(X)( )( )\n" +
+                       "( )(0)(X)( )(X)(0)( )\n" +
+                       "(0)(X)(0)( )(X)(0)( )\n" +
+                       "(X)(0)(X)(X)(X)(0)(0)\n";
        assertEquals(expected, bord.toString());
+
+        System.out.println("Test 3: Der Winner ist " + bord.TestVictory());
+       assertEquals(bord.TestVictory(), Winner.BLUE);
 
 
     }

@@ -10,7 +10,7 @@ import javax.swing.*;
  *@author2 TIEGAM NJOYA FRANCK WILFRIED
  */
 
-public class Bord extends GameObjekt{
+public class Bord extends GameObjekt {
 
     public Cell[][] getGameBord() {
         return gameBord;
@@ -20,7 +20,7 @@ public class Bord extends GameObjekt{
         this.gameBord = gameBord;
     }
 
-    private Cell[][] gameBord  = new Cell[6][7]; // Das Spielfeld
+    private Cell[][] gameBord = new Cell[6][7]; // Das Spielfeld
 
     /*
     Getter und setter von gameBoard.
@@ -28,9 +28,9 @@ public class Bord extends GameObjekt{
     /*
     Jetzt füllen wir unser Spielfeld mit den Cell.
      */
-    public Bord(){
-        for(int i=0; i<6; i++){
-            for(int j=0; j<7; j++){
+    public Bord() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
                 Cell cell = new Cell();
                 gameBord[i][j] = cell;
             }
@@ -41,8 +41,8 @@ public class Bord extends GameObjekt{
     /*
     Die Methode canDrop. Die wird überprüfen, ob eine Cell bereits besetzt ist und den entsprechende Entscheidung treffen.
      */
-    public boolean canDrop(int columnsIndex){
-        if(columnsIndex<0 || columnsIndex>7){
+    public boolean canDrop(int columnsIndex) {
+        if (columnsIndex < 0 || columnsIndex > 7) {
             return false;
         } else return gameBord[0][columnsIndex].isleer();
     }
@@ -50,12 +50,12 @@ public class Bord extends GameObjekt{
     /*
     Die Methode dropToken prüft zuerst, ob eine Spalte besetzt werden kann. Wenn möglich stellt sie ein Token in der unterste cell
      */
-    public boolean dropToken(Color color, int columnsIndex){
-        if (!canDrop(columnsIndex)){
+    public boolean dropToken(Color color, int columnsIndex) {
+        if (!canDrop(columnsIndex)) {
             return false;
         }
-        for(int i=5; i>=0; i--){
-            if(gameBord[i][columnsIndex].isleer()){
+        for (int i = 5; i >= 0; i--) {
+            if (gameBord[i][columnsIndex].isleer()) {
                 gameBord[i][columnsIndex].placetoken(new Token(color));
                 return true;
             }
@@ -67,7 +67,7 @@ public class Bord extends GameObjekt{
     Die Methode toString gibt einfach das ganze Spielfeld als String zurück
      */
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int r = 0; r < 6; r++) {
             for (int c = 0; c < 7; c++) {
@@ -84,57 +84,131 @@ public class Bord extends GameObjekt{
     Mäle kommt.
      */
 
-    public Winner checkWinner(){
-
-        for(int i=0; i<6; i++){
-            for(int j=0; j<7; j++){
+    private boolean isRowVictory(Color color) {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
                 Token token = gameBord[i][j].getToken();
-                if(token == null) continue;
-                Color color = token.getColor();
+                if (token == null) continue;
+                Color colorToCheck = token.getColor();
 
-                // Horizontal prüfen
-                if(j<=3 && checkLine(color, i, j, 0, 1)){
-                    return color == Color.RED ? Winner.RED : Winner.BLUE;
+                if (color == colorToCheck && j <= 3 && toCheckRow(colorToCheck, i, j, 1)) {
+                    return true;
                 }
 
-                // Vertical Prüfen
-                if(i<=2 && checkLine(color, i, j, 1, 0)){
-                    return color == Color.RED? Winner.RED : Winner.BLUE;
-                }
-
-                // Diagonal recht prüfen.
-                if(j<=2 && i<=3 && checkLine(color, i, j, 1, 1)){
-                    return color == Color.BLUE? Winner.BLUE : Winner.RED;
-                }
-
-                // Diagonal links prüfen.
-                if(i<=2 && j>=3 && checkLine(color, i, j, 1, -1)){
-                    return color == Color.BLUE? Winner.BLUE : Winner.RED;
-                }
-            }
-
-
-
-        }
-        return Winner.NONE; // Kein Gewinner gefunden
-
-
-    }
-    /*
-    Die Methode checkline prüft, ob eine bestimmte Farbe horizontal, vertikal oder diagonal vier Mäle kommt.
-     */
-    private boolean checkLine(Color color, int toCheckLine, int toCheckColumns,int toCheckDirection1, int toCheckDirection2 ){
-        boolean checker = true;
-        for(int i=0; i<4; i++){
-            int compterLine = toCheckLine + toCheckDirection1*i;
-            int compterColums = toCheckColumns + toCheckDirection2*i;
-            if( gameBord[compterLine][compterColums].getToken()==null || color!=gameBord[compterLine][compterColums].getToken().getColor() ){
-                checker = false;
-                break;
             }
         }
-        if(checker) return true;
-        else return false;
+        return false;
     }
+    private boolean toCheckRow(Color color,int toCheckLine,int toCheckColumn, int lineRechner) {
+        int istRow = 1;
+        int colomnRechner = toCheckColumn;
+        lineRechner = toCheckLine;
+        if (lineRechner<5){
+            for(int i=1; i<4; i++){
+                if(lineRechner==toCheckLine){
+                    lineRechner += 1;
+                } else { lineRechner -= 1;}
 
+                colomnRechner += 1;
+                if( gameBord[lineRechner][colomnRechner].getToken()== null) break;
+                if(gameBord[lineRechner][colomnRechner].getToken().getColor()==null || color!=gameBord[lineRechner][colomnRechner].getToken().getColor()){
+                    break;
+                }
+
+                else istRow += 1;
+
+            }
+
+        }
+
+         if(istRow==4) return true;
+
+        istRow = 1;
+        colomnRechner = toCheckColumn;
+        lineRechner = toCheckLine;
+        if (toCheckLine>0){
+            for(int i=1; i<4; i++){
+                if(lineRechner==toCheckLine){
+                    lineRechner -= 1;
+                } else { lineRechner += 1;}
+
+                colomnRechner += 1;
+                if( gameBord[lineRechner][colomnRechner].getToken()== null) break;
+                if(gameBord[lineRechner][colomnRechner].getToken().getColor()==null || color!=gameBord[lineRechner][colomnRechner].getToken().getColor()) break;
+
+                else istRow += 1;
+            }
+        }
+        if(istRow==4) return true;
+
+        return false;
+    }
+    private boolean isColumnVictory (Color color){
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 7; j++) {
+                Token token = gameBord[i][j].getToken();
+                if (token == null) continue;
+                Color colorToCheck = token.getColor();
+
+                if (color == colorToCheck && i <= 2 && toCheckColumn(colorToCheck, i, j, 1)) {
+                    return true;
+                }
+
+            }
+        }
+        return false;
+
+    }
+    private boolean toCheckColumn(Color color,int toCheckLine,int toCheckColumn, int colomnRechner){
+        int istRow = 1;
+        colomnRechner = toCheckColumn;
+        int lineRechner = toCheckLine;
+        if(toCheckColumn<6){
+            for(int i=1; i<4; i++){
+                if(colomnRechner==toCheckColumn){
+                    colomnRechner += 1;
+                } else { colomnRechner -= 1;}
+
+                lineRechner += 1;
+                if( gameBord[lineRechner][colomnRechner].getToken()== null) continue;
+                if(gameBord[lineRechner][colomnRechner].getToken().getColor()==null || color!=gameBord[lineRechner][colomnRechner].getToken().getColor()) break;
+
+                else istRow += 1;
+            }
+        }
+
+        if(istRow==4) return true;
+
+        istRow = 1;
+        colomnRechner = toCheckColumn;
+        lineRechner = toCheckLine;
+        if(toCheckColumn>0){
+            for(int i=1; i<4; i++){
+                if(colomnRechner==toCheckColumn){
+                    colomnRechner -= 1;
+                } else { colomnRechner += 1;}
+
+                lineRechner += 1;
+                if( gameBord[lineRechner][colomnRechner].getToken()== null) continue;
+                if(gameBord[lineRechner][colomnRechner].getToken().getColor()==null || color!=gameBord[lineRechner][colomnRechner].getToken().getColor()) break;
+
+                else istRow += 1;
+            }
+        }
+
+        if(istRow==4) return true;
+
+        return false;
+
+    }
+    public Winner TestVictory(){
+        if(isRowVictory(Color.RED) || isColumnVictory(Color.RED)){
+            return Winner.RED;
+        } else if(isRowVictory(Color.BLUE) || isColumnVictory(Color.BLUE)){
+            return Winner.BLUE;
+        }
+
+
+        return Winner.NONE;
+    }
 }
