@@ -1,6 +1,6 @@
 package tuc.isse;
 import org.junit.jupiter.api.Test;
-import tuc.isse.Bord;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestBord {
 
     @Test
-     void test1(){
+     void test1() throws ColumnFullException {
        Bord bord1 = new Bord();
 
        /*
@@ -48,7 +48,7 @@ public class TestBord {
 
     }
     @Test
-    void test2(){
+    void test2() throws ColumnFullException {
 
        /*
        Die zu testete Tabelle generieren
@@ -87,7 +87,7 @@ public class TestBord {
        assertEquals(bord.TestVictory(), Winner.RED);
     }
     @Test
-    void test3(){
+    void test3() throws ColumnFullException {
       /*
       Die dritte Tabelle generieren.
        */

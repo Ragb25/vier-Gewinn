@@ -1,7 +1,5 @@
 package tuc.isse;
 
-import javax.swing.*;
-
 
 /**
  * email:ragb25@tu-clausthal.de
@@ -48,19 +46,19 @@ public class Bord extends GameObjekt {
     }
 
     /*
-    Die Methode dropToken prüft zuerst, ob eine Spalte besetzt werden kann. Wenn möglich stellt sie ein Token in der unterste cell
+    Die Methode droToken wirft eine Exception, wenn die spalte voll ist
      */
-    public boolean dropToken(Color color, int columnsIndex) {
+    public void dropToken(Color color, int columnsIndex) throws ColumnFullException {
         if (!canDrop(columnsIndex)) {
-            return false;
+            throw new ColumnFullException("column" + columnsIndex +"ist full.");
         }
         for (int i = 5; i >= 0; i--) {
             if (gameBord[i][columnsIndex].isleer()) {
                 gameBord[i][columnsIndex].placetoken(new Token(color));
-                return true;
+                return ;
             }
         }
-        return false;
+        throw  new ColumnFullException("error : column" + columnsIndex + "full.");
     }
 
     /*
@@ -91,7 +89,7 @@ public class Bord extends GameObjekt {
                 if (token == null) continue; // leere token enthalten keine Farbe
                 Color colorToCheck = token.getColor();
 
-                if (color == colorToCheck && j <= 3 && toCheckRow(colorToCheck, i, j, 1)) { // wenn j großer als 3 ist, werden wird die Länge von gameBord überschreiten.
+                if (color == colorToCheck && j <= 3 && toCheckRow(colorToCheck, i, j)) { // wenn j großer als 3 ist, werden wird die Länge von gameBord überschreiten.
                     return true;
                 }
 
@@ -103,10 +101,10 @@ public class Bord extends GameObjekt {
     /*
     Die Methode toCheckRow überprüft, ob eine bestimmte Farbe die Siegbedingung erfüllt.
      */
-    private boolean toCheckRow(Color color,int toCheckLine,int toCheckColumn, int lineRechner) {
+    private boolean toCheckRow(Color color,int toCheckLine,int toCheckColumn) {
         int istRow = 1; // Zählt wie oft die Farbe in Zickzak vorkommt
         int colomnRechner = toCheckColumn;
-        lineRechner = toCheckLine;
+        int lineRechner = toCheckLine;
 
         if (lineRechner<5){ // ist lineRechner schon gleich 5, könnten wir nicht mehr von unten prüfen.
             for(int i=1; i<4; i++){
@@ -163,7 +161,7 @@ public class Bord extends GameObjekt {
                 if (token == null) continue; // leere token enthalten keine Farbe
                 Color colorToCheck = token.getColor();
 
-                if (color == colorToCheck && i <= 2 && toCheckColumn(colorToCheck, i, j, 1)) {
+                if (color == colorToCheck && i <= 2 && toCheckColumn(colorToCheck, i, j)) {
                     return true;
                 }
 
@@ -174,9 +172,9 @@ public class Bord extends GameObjekt {
     }
 
     // Das gleiche Verfahren wie bei toCheckLine
-    private boolean toCheckColumn(Color color,int toCheckLine,int toCheckColumn, int colomnRechner){
+    private boolean toCheckColumn(Color color,int toCheckLine,int toCheckColumn){
         int istRow = 1;
-        colomnRechner = toCheckColumn;
+        int colomnRechner = toCheckColumn;
         int lineRechner = toCheckLine;
         if(toCheckColumn<6){
             for(int i=1; i<4; i++){
@@ -185,7 +183,7 @@ public class Bord extends GameObjekt {
                 } else { colomnRechner -= 1;}
 
                 lineRechner += 1;
-                if( gameBord[lineRechner][colomnRechner].getToken()== null) continue;
+                if( gameBord[lineRechner][colomnRechner].getToken()== null) break;
                 if(gameBord[lineRechner][colomnRechner].getToken().getColor()==null || color!=gameBord[lineRechner][colomnRechner].getToken().getColor()) break;
 
                 else istRow += 1;
