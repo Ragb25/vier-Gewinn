@@ -14,6 +14,9 @@ public class ConsolePlayer extends Player{
         this.color = color;
     }
 
+    /*
+    Hier nehmen wir einfach die Eingabe des Nutzers uns Spielen wir damit.
+     */
     @Override
     public void doTurn() throws ColumnFullException, IllegalMoveException, IOException {
 

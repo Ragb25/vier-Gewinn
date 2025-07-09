@@ -4,6 +4,15 @@ import java.io.IOException;
 
 public abstract class Game {
     private Bord bord;
+
+    public void setPlayerX(Player playerX) {
+        this.playerX = playerX;
+    }
+
+    public void setPlayerO(Player playerO) {
+        this.playerO = playerO;
+    }
+
     private Player playerO;
     private Player playerX;
     private Player istDran;
@@ -11,7 +20,9 @@ public abstract class Game {
     public Game(Bord bord){
         this.bord = bord;
     }
-
+    public void setIstDran(Player istDran) {
+        this.istDran = istDran;
+    }
     protected void swapPlayer(){
 
         if(istDran == playerO){
@@ -29,9 +40,7 @@ public abstract class Game {
         return istDran;
     }
 
-    public void setIstDran(Player istDran) {
-        this.istDran = istDran;
-    }
+
 
 
 

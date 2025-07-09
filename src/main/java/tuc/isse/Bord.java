@@ -72,7 +72,7 @@ public class Bord extends GameObjekt {
     public void dropToken(Token token, int columnsIndex) throws ColumnFullException, IllegalMoveException {
 
         if (!canDrop(columnsIndex)) {
-            throw new ColumnFullException("column" + columnsIndex +"ist full.");
+            throw new ColumnFullException("column " + columnsIndex +" ist full.");
         }
         try {
             if (TestVictory()!=Winner.NONE) throw new IllegalMoveException("Jemand hat bereits gewonnen");
@@ -277,9 +277,12 @@ public class Bord extends GameObjekt {
 
     }
 
+    /*
+    Überprüft, ob ein Gleichstand aufgetreten ist.
+     */
     private boolean isTie(){
 
-        return blueLager.get("BLUE").isEmpty()  || redLager.get("RED").isEmpty();
+        return blueLager.get("BLUE").isEmpty()  && redLager.get("RED").isEmpty();
 
     }
 
