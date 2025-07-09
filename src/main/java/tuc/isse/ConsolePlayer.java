@@ -1,0 +1,24 @@
+package tuc.isse;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ConsolePlayer extends Player{
+    private Bord bord;
+    private Color color;
+
+    public ConsolePlayer(Color color, Bord bord) {
+        super(color, bord);
+        this.bord = bord;
+        this.color = color;
+    }
+
+    @Override
+    public void doTurn() throws ColumnFullException, IllegalMoveException, IOException {
+
+        BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
+        int input = Integer.parseInt(consoleReader.readLine());
+        super.doDrop(input);
+    }
+}

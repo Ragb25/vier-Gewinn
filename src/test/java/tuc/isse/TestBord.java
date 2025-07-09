@@ -12,25 +12,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestBord {
 
     @Test
-     void test1() throws ColumnFullException {
+     void test1() throws ColumnFullException, IllegalMoveException {
        Bord bord1 = new Bord();
 
        /*
        Die zu testeten Tabelle generieren
         */
-       bord1.dropToken(Color.RED, 6);
-       bord1.dropToken(Color.BLUE, 4);
-       bord1.dropToken(Color.RED, 6);
-       bord1.dropToken(Color.BLUE, 2);
-       bord1.dropToken(Color.BLUE, 4);
-       bord1.dropToken(Color.BLUE, 5);
-       bord1.dropToken(Color.RED, 6);
-       bord1.dropToken(Color.RED, 2);
-       bord1.dropToken(Color.BLUE, 3);
-       bord1.dropToken(Color.RED, 4);
-       bord1.dropToken(Color.RED, 5);
-       bord1.dropToken(Color.BLUE, 6);
-
+       bord1.dropToken(bord1.getToken(Color.RED), 6);
+       bord1.dropToken(bord1.getToken(Color.BLUE), 4);
+       bord1.dropToken(bord1.getToken(Color.RED), 6);
+       bord1.dropToken(bord1.getToken(Color.BLUE), 2);
+       bord1.dropToken(bord1.getToken(Color.BLUE), 4);
+       bord1.dropToken(bord1.getToken(Color.BLUE), 5);
+       bord1.dropToken(bord1.getToken(Color.RED), 6);
+       bord1.dropToken(bord1.getToken(Color.RED), 2);
+       bord1.dropToken(bord1.getToken(Color.BLUE), 3);
+       bord1.dropToken(bord1.getToken(Color.RED), 4);
+       bord1.dropToken(bord1.getToken(Color.RED), 5);
+       bord1.dropToken(bord1.getToken(Color.BLUE), 6);
 
 
         String expected1 =
@@ -44,34 +43,36 @@ public class TestBord {
         assertEquals(expected1, bord1.toString()); //Erster Test
 
         System.out.println("Test 1: Der Winner ist " + bord1.TestVictory());
+
+        // Erweiterung des Testes
         assertEquals(bord1.TestVictory(), Winner.NONE);
 
     }
     @Test
-    void test2() throws ColumnFullException {
+    void test2() throws ColumnFullException, IllegalMoveException {
 
        /*
        Die zu testete Tabelle generieren
         */
 
        Bord bord = new Bord();
-       bord.dropToken(Color.RED, 6);
-       bord.dropToken(Color.RED, 6);
-       bord.dropToken(Color.BLUE, 6);
-       bord.dropToken(Color.RED, 6);
-       bord.dropToken(Color.BLUE, 5);
-       bord.dropToken(Color.BLUE, 5);
-       bord.dropToken(Color.RED, 5);
-       bord.dropToken(Color.BLUE, 4);
-       bord.dropToken(Color.RED, 4);
-       bord.dropToken(Color.RED, 4);
-       bord.dropToken(Color.RED, 3);
-       bord.dropToken(Color.BLUE, 2);
-       bord.dropToken(Color.RED, 2);
-       bord.dropToken(Color.BLUE, 2);
-       bord.dropToken(Color.RED, 1);
-       bord.dropToken(Color.BLUE, 0);
-       bord.dropToken(Color.BLUE, 0);
+       bord.dropToken(bord.getToken(Color.RED), 6);
+       bord.dropToken(bord.getToken(Color.RED), 6);
+       bord.dropToken(bord.getToken(Color.BLUE), 6);
+       bord.dropToken(bord.getToken(Color.RED), 6);
+       bord.dropToken(bord.getToken(Color.BLUE), 5);
+       bord.dropToken(bord.getToken(Color.BLUE), 5);
+       bord.dropToken(bord.getToken(Color.RED), 5);
+       bord.dropToken(bord.getToken(Color.BLUE), 4);
+       bord.dropToken(bord.getToken(Color.RED), 4);
+       bord.dropToken(bord.getToken(Color.RED), 4);
+       bord.dropToken(bord.getToken(Color.RED), 3);
+       bord.dropToken(bord.getToken(Color.BLUE), 2);
+       bord.dropToken(bord.getToken(Color.RED), 2);
+       bord.dropToken(bord.getToken(Color.BLUE), 2);
+       bord.dropToken(bord.getToken(Color.RED), 1);
+       bord.dropToken(bord.getToken(Color.BLUE), 0);
+       bord.dropToken(bord.getToken(Color.BLUE), 0);
 
 
        String expected =
@@ -84,32 +85,33 @@ public class TestBord {
        assertEquals(expected, bord.toString());
 
         System.out.println("Test 2: Der Winner ist " + bord.TestVictory());
+        // Erweiterung des Testes
        assertEquals(bord.TestVictory(), Winner.RED);
     }
     @Test
-    void test3() throws ColumnFullException {
+    void test3() throws ColumnFullException, IllegalMoveException {
       /*
       Die dritte Tabelle generieren.
        */
        Bord bord = new Bord();
-       bord.dropToken(Color.BLUE, 6);
-       bord.dropToken(Color.BLUE, 5);
-       bord.dropToken(Color.BLUE, 5);
-       bord.dropToken(Color.BLUE, 5);
-       bord.dropToken(Color.RED, 4);
-       bord.dropToken(Color.RED, 4);
-       bord.dropToken(Color.RED, 4);
-       bord.dropToken(Color.RED, 4);
-       bord.dropToken(Color.RED, 3);
-       bord.dropToken(Color.RED, 2);
-       bord.dropToken(Color.BLUE, 2);
-       bord.dropToken(Color.RED, 2);
-       bord.dropToken(Color.BLUE, 2);
-       bord.dropToken(Color.BLUE, 1);
-       bord.dropToken(Color.RED, 1);
-       bord.dropToken(Color.BLUE, 1);
-       bord.dropToken(Color.RED, 0);
-       bord.dropToken(Color.BLUE, 0);
+       bord.dropToken(bord.getToken(Color.BLUE), 6);
+       bord.dropToken(bord.getToken(Color.BLUE), 5);
+       bord.dropToken(bord.getToken(Color.BLUE), 5);
+       bord.dropToken(bord.getToken(Color.BLUE), 5);
+       bord.dropToken(bord.getToken(Color.RED), 4);
+       bord.dropToken(bord.getToken(Color.RED), 4);
+       bord.dropToken(bord.getToken(Color.RED), 4);
+       bord.dropToken(bord.getToken(Color.RED), 4);
+       bord.dropToken(bord.getToken(Color.RED), 3);
+       bord.dropToken(bord.getToken(Color.RED), 2);
+       bord.dropToken(bord.getToken(Color.BLUE), 2);
+       bord.dropToken(bord.getToken(Color.RED), 2);
+       bord.dropToken(bord.getToken(Color.BLUE), 2);
+       bord.dropToken(bord.getToken(Color.BLUE), 1);
+       bord.dropToken(bord.getToken(Color.RED), 1);
+       bord.dropToken(bord.getToken(Color.BLUE), 1);
+       bord.dropToken(bord.getToken(Color.RED), 0);
+       bord.dropToken(bord.getToken(Color.BLUE), 0);
 
 
        String expected =
@@ -119,11 +121,37 @@ public class TestBord {
                        "( )(0)(X)( )(X)(0)( )\n" +
                        "(0)(X)(0)( )(X)(0)( )\n" +
                        "(X)(0)(X)(X)(X)(0)(0)\n";
-       assertEquals(expected, bord.toString());
 
         System.out.println("Test 3: Der Winner ist " + bord.TestVictory());
-       assertEquals(bord.TestVictory(), Winner.BLUE);
 
+        // Erweiterung des Testes
+        assertEquals(expected, bord.toString());
+        assertEquals(bord.TestVictory(), Winner.BLUE);
+
+
+    }
+
+    @Test
+    void test4() throws ColumnFullException, IllegalMoveException{
+        Bord bord = new Bord();
+        for(int i=0; i<6; i++){
+            for(int j=0; j<6; j++){
+                if(i%2==0){
+                    bord.dropToken(bord.getToken(Color.RED), i);
+                }else bord.dropToken(bord.getToken(Color.BLUE), i);
+
+            }
+        }
+        bord.dropToken(bord.getToken(Color.BLUE), 6);
+        bord.dropToken(bord.getToken(Color.RED), 6);
+        bord.dropToken(bord.getToken(Color.RED), 6);
+        bord.dropToken(bord.getToken(Color.BLUE), 6);
+        bord.dropToken(bord.getToken(Color.BLUE), 6);
+        bord.dropToken(bord.getToken(Color.RED), 6);
+
+
+        assertEquals(bord.TestVictory(), Winner.TIE);
+        System.out.println("Der Winner ist " + bord.TestVictory());
 
     }
 }

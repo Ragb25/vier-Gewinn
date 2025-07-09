@@ -1,0 +1,24 @@
+package tuc.isse;
+
+import java.io.IOException;
+
+public abstract class Player {
+    private Color color;
+    Bord bord;
+
+    public Player(Color color, Bord bord){
+        this.color = color;
+        this.bord = bord;
+    }
+
+    protected void doDrop(int columnIndex) throws ColumnFullException, IllegalMoveException {
+        Token token = bord.getToken(color);
+
+        bord.dropToken(token, columnIndex);
+
+
+
+    }
+
+    public abstract void doTurn() throws ColumnFullException, IllegalMoveException, IOException;
+}
