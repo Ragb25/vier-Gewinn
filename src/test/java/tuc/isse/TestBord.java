@@ -1,6 +1,10 @@
 package tuc.isse;
 import org.junit.jupiter.api.Test;
 import tuc.isse.model.*;
+import tuc.isse.view.ColumnFullException;
+import tuc.isse.view.IllegalMoveException;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestBord {
 
     @Test
-     void test1() throws ColumnFullException, IllegalMoveException {
+     void test1() throws ColumnFullException, IllegalMoveException, IOException {
        Bord bord1 = new Bord();
 
        /*
@@ -50,7 +54,7 @@ public class TestBord {
 
     }
     @Test
-    void test2() throws ColumnFullException, IllegalMoveException {
+    void test2() throws ColumnFullException, IllegalMoveException, IOException {
 
        /*
        Die zu testete Tabelle generieren
@@ -90,7 +94,7 @@ public class TestBord {
        assertEquals(bord.TestVictory(), Winner.RED);
     }
     @Test
-    void test3() throws ColumnFullException, IllegalMoveException {
+    void test3() throws ColumnFullException, IllegalMoveException, IOException {
       /*
       Die dritte Tabelle generieren.
        */
@@ -133,7 +137,7 @@ public class TestBord {
     }
 
     @Test
-    void test4() throws ColumnFullException, IllegalMoveException{
+    void test4() throws ColumnFullException, IllegalMoveException, IOException {
         Bord bord = new Bord();
         for(int i=0; i<6; i++){
             for(int j=0; j<6; j++){

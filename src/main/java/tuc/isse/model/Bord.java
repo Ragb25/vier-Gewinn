@@ -2,6 +2,8 @@ package tuc.isse.model;
 
 
 import tuc.isse.controller.GameObjekt;
+import tuc.isse.view.ColumnFullException;
+import tuc.isse.view.IllegalMoveException;
 
 import java.io.IOException;
 import java.util.ArrayList;

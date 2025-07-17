@@ -1,11 +1,16 @@
-package tuc.isse.model;
+package tuc.isse.view;
 
 import tuc.isse.model.Bord;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 
 public class VierGewinntFrame extends JFrame {
     private JButton[] columnButtons;  // Array für die Buttons der Spalten

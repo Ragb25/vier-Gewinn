@@ -2,25 +2,32 @@ package tuc.isse.controller;
 
 
 
-import tuc.isse.model.*;
-import tuc.isse.model.VierGewinntFrame;
+import tuc.isse.model.Bord;
+import tuc.isse.view.VierGewinntFrame;
 
 import java.io.IOException;
 
-import tuc.isse.model.ColumnFullException;
-import tuc.isse.model.IllegalMoveException;
+import tuc.isse.view.ColumnFullException;
+import tuc.isse.view.IllegalMoveException;
 import tuc.isse.model.Winner;
+import tuc.isse.view.BordObserver;
+import tuc.isse.view.ObservableBord;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 public class FrameGame extends Game implements BordObserver, ActionListener {
 
     private VierGewinntFrame frame;  // Referenz auf die Benutzeroberfläche
-    private ObservableBord bord;
+    private Bord bord;
 
-    public FrameGame(ObservableBord bord, VierGewinntFrame frame) {
+    public FrameGame(Bord bord, VierGewinntFrame frame) {
         super( bord);
         this.frame = frame;
         this.bord = bord;

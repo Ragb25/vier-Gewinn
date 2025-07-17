@@ -1,9 +1,12 @@
 package tuc.isse;
 import org.junit.jupiter.api.Test;
 import tuc.isse.controller.ConsoleGame;
-import tuc.isse.model.ObservableBord;
+import tuc.isse.view.ColumnFullException;
+import tuc.isse.view.IllegalMoveException;
+import tuc.isse.view.ObservableBord;
 import tuc.isse.model.*;
 import tuc.isse.controller.MocPlayer;
+import tuc.isse.view.MockBordObserver;
 
 import java.io.IOException;
 

@@ -4,14 +4,19 @@ package tuc.isse.controller;
 
 import tuc.isse.model.Bord;
 import tuc.isse.model.Color;
-import tuc.isse.model.ColumnFullException;
-import tuc.isse.model.IllegalMoveException;
-import tuc.isse.model.VierGewinntFrame;
+import tuc.isse.view.ColumnFullException;
+import tuc.isse.view.IllegalMoveException;
+import tuc.isse.view.VierGewinntFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 public class FramePlayer extends Player implements ActionListener {
 
     private VierGewinntFrame fram;  // Referenz auf die Benutzeroberfläche

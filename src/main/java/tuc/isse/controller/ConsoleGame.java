@@ -1,9 +1,17 @@
 package tuc.isse.controller;
 
 import tuc.isse.model.*;
+import tuc.isse.view.ColumnFullException;
+import tuc.isse.view.IllegalMoveException;
+import tuc.isse.view.ObservableBord;
 
 import java.io.IOException;
-
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 public class ConsoleGame extends Game {
 
     public ConsoleGame(Bord bord) {

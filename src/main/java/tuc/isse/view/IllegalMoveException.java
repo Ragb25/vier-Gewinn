@@ -1,4 +1,4 @@
-package tuc.isse.model;
+package tuc.isse.view;
 
 public class IllegalMoveException extends Exception {
     public IllegalMoveException(String message) {

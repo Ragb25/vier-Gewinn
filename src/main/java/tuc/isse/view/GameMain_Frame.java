@@ -1,13 +1,17 @@
-package tuc.isse.model;
+package tuc.isse.view;
 
 
 
 import tuc.isse.controller.FrameGame;
 import tuc.isse.controller.FramePlayer;
-import tuc.isse.model.Bord;
 import tuc.isse.controller.Player;
-import tuc.isse.model.VierGewinntFrame;
-
+import tuc.isse.model.Color;
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 public class GameMain_Frame {
 
     public static void main(String[] args) {

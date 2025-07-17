@@ -1,4 +1,4 @@
-package tuc.isse.model;
+package tuc.isse.view;
 /**
  * Ausnahme, die erhoben wurde, wenn man versucht, einen Chip in eine bereits volle Spalte zu legen.
  * email:ragb25@tu-clausthal.de

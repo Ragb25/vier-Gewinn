@@ -1,9 +1,17 @@
-package tuc.isse.model;
+package tuc.isse.view;
+
+import tuc.isse.model.Bord;
+import tuc.isse.model.Token;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * email:ragb25@tu-clausthal.de
+ * email: Ft81@tu-clausthal.de
+ *@autor1 Ramane Gbatkom Mouliom Abdel
+ *@author2 TIEGAM NJOYA FRANCK WILFRIED
+ */
 public class ObservableBord extends Bord {
 
     private List<BordObserver> observers = new ArrayList<>(); // Liste der Observer
