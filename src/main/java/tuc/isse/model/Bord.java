@@ -1,6 +1,9 @@
-package tuc.isse;
+package tuc.isse.model;
 
 
+import tuc.isse.controller.GameObjekt;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +17,14 @@ import java.util.Map;
  */
 
 public class Bord extends GameObjekt {
+
+    public List<List<Cell>> getGameBord() {
+        return gameBord;
+    }
+
+    public void setGameBord(List<List<Cell>> gameBord) {
+        this.gameBord = gameBord;
+    }
 
     private List<List<Cell>> gameBord = new ArrayList<>(); // Das Spielfeld
     private Map<String, List<Token>> redLager = new HashMap<>(); // Lager für Token mit Farbe Rot
@@ -69,7 +80,7 @@ public class Bord extends GameObjekt {
     Die Methode droToken wirft eine Exception, wenn die spalte voll ist
     Und wirft eine IllegalMoveException ob eine Farbe bereits gewonnen hat.
      */
-    public void dropToken(Token token, int columnsIndex) throws ColumnFullException, IllegalMoveException {
+    public void dropToken(Token token, int columnsIndex) throws ColumnFullException, IllegalMoveException, IOException {
 
         if (!canDrop(columnsIndex)) {
             throw new ColumnFullException("column " + columnsIndex +" ist full.");
@@ -285,6 +296,25 @@ public class Bord extends GameObjekt {
         return blueLager.get("BLUE").isEmpty()  && redLager.get("RED").isEmpty();
 
     }
+
+    public Color getTokenColor(int row, int column) {
+        // Überprüfen, ob die angegebene Position innerhalb des Spielfeldes liegt
+        if (row < 0 || row >= gameBord.size() || column < 0 || column >= gameBord.get(row).size()) {
+            return null; // Ungültige Position
+        }
+
+        // Die Zelle an der angegebenen Position
+        Cell cell = gameBord.get(row).get(column);
+
+        // Überprüfen, ob die Zelle ein Token enthält und die Farbe des Tokens zurückgeben
+        Token token = cell.getToken();
+        if (token != null) {
+            return token.getColor(); // Farbe des Tokens zurückgeben
+        }
+
+        return null; // Kein Token vorhanden, also null zurückgeben
+    }
+
 
     // Hier ist die Methode, die unserer isRowVictory und isColumnVictory aufruft.
     public Winner TestVictory(){

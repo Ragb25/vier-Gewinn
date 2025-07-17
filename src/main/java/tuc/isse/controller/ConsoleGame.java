@@ -1,12 +1,13 @@
-package tuc.isse;
+package tuc.isse.controller;
 
-import javax.swing.*;
+import tuc.isse.model.*;
+
 import java.io.IOException;
 
-public class ConsoleGame extends Game{
+public class ConsoleGame extends Game {
 
     public ConsoleGame(Bord bord) {
-        super(bord);
+        super((ObservableBord) bord);
     }
 
     @Override
@@ -16,7 +17,7 @@ public class ConsoleGame extends Game{
         Player istDran = playerO;
         super.setPlayerO(playerO);
         super.setPlayerO(playerX);
-        while(bord.TestVictory()==Winner.NONE){
+        while(bord.TestVictory()== Winner.NONE){
             System.out.println(bord);
 
 

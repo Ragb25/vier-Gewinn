@@ -1,5 +1,6 @@
 package tuc.isse;
 import org.junit.jupiter.api.Test;
+import tuc.isse.model.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

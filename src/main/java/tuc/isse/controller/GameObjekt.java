@@ -1,4 +1,4 @@
-package tuc.isse;
+package tuc.isse.controller;
 
 /**
  * email:ragb25@tu-clausthal.de

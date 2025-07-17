@@ -1,6 +1,13 @@
-package tuc.isse;
+package tuc.isse.controller;
 
-public class MocPlayer extends Player{
+import tuc.isse.model.ColumnFullException;
+import tuc.isse.model.IllegalMoveException;
+import tuc.isse.model.Bord;
+import tuc.isse.model.Color;
+
+import java.io.IOException;
+
+public class MocPlayer extends Player {
     private int moveFirstColumn;
     private int moveSecondColumn;
     private int round;
@@ -18,7 +25,7 @@ public class MocPlayer extends Player{
     }
 
     @Override
-    public void doTurn() throws ColumnFullException, IllegalMoveException {
+    public void doTurn() throws ColumnFullException, IllegalMoveException, IOException {
 
 
         if(round%2 == 0){

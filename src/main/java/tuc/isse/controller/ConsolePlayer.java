@@ -1,10 +1,15 @@
-package tuc.isse;
+package tuc.isse.controller;
+
+import tuc.isse.model.ColumnFullException;
+import tuc.isse.model.IllegalMoveException;
+import tuc.isse.model.Bord;
+import tuc.isse.model.Color;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ConsolePlayer extends Player{
+public class ConsolePlayer extends Player {
     private Bord bord;
     private Color color;
 

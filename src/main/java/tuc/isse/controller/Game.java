@@ -1,4 +1,9 @@
-package tuc.isse;
+package tuc.isse.controller;
+
+import tuc.isse.model.ColumnFullException;
+import tuc.isse.model.IllegalMoveException;
+import tuc.isse.model.Bord;
+import tuc.isse.model.ObservableBord;
 
 import java.io.IOException;
 
@@ -18,7 +23,7 @@ public abstract class Game {
     private Player istDran;
 
     public Game(Bord bord){
-        this.bord = bord;
+        this.bord =  bord;
     }
     public void setIstDran(Player istDran) {
         this.istDran = istDran;
@@ -33,7 +38,7 @@ public abstract class Game {
         return bord;
     }
 
-    public void setBord(Bord bord) {
+    public void setBord(ObservableBord bord) {
         this.bord = bord;
     }
     public Player getIstDran() {

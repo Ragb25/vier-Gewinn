@@ -1,4 +1,6 @@
-package tuc.isse;
+package tuc.isse.model;
+
+import tuc.isse.controller.GameObjekt;
 
 /**
  * email:ragb25@tu-clausthal.de

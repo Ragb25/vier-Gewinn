@@ -1,4 +1,4 @@
-package tuc.isse;
+package tuc.isse.model;
 
 public enum Color {
     RED,

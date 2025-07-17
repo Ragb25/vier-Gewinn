@@ -1,5 +1,12 @@
 package tuc.isse;
 
+import tuc.isse.controller.ConsoleGame;
+import tuc.isse.controller.ConsolePlayer;
+import tuc.isse.model.Bord;
+import tuc.isse.model.Color;
+import tuc.isse.model.ColumnFullException;
+import tuc.isse.model.IllegalMoveException;
+
 import java.io.IOException;
 
 public class GameMain_Console {
